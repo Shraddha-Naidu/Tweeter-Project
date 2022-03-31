@@ -22,6 +22,12 @@ body {
 
 nav span {
   font-family: 'Bungee', cursive;
+  height: 120px;
+  width: 100vw;
+  color: #FFFF;
+  background-color: #37A1D3;
+  padding: 1.5em;
+  position: fixed;
 }
 
 /*
