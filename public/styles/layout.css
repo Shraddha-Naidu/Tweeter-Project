@@ -20,16 +20,6 @@ body {
   font-size: 24px;
 }
 
-nav span {
-  font-family: 'Bungee', cursive;
-  height: 120px;
-  width: 100vw;
-  color: #FFFF;
-  background-color: #37A1D3;
-  padding: 1.5em;
-  position: fixed;
-}
-
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
 
