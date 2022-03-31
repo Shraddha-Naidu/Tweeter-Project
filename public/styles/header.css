@@ -8,6 +8,8 @@ header {
 }
 
 header img {
+  top: 15px;
+  left: 250px;
   display: inline-block;
   position: relative;
   align-self: center;
