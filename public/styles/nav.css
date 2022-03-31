@@ -1,9 +1,15 @@
-nav span {
-  font-family: 'Bungee', cursive;
+/* NAV BAR STYLE*/
+nav {
   height: 120px;
   width: 100vw;
   color: #FFFF;
   background-color: #37A1D3;
   padding: 1.5em;
   position: fixed;
+}
+
+/* NAV TITLE STYLE*/
+nav span {
+  font-family: 'Bungee', cursive;
+  float: left;
 }
