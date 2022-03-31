@@ -9,7 +9,21 @@ nav {
 }
 
 /* NAV TITLE STYLE*/
-nav span {
+nav span:nth-child(1) {
   font-family: 'Bungee', cursive;
   float: left;
+}
+
+nav span:nth-child(2) {
+  font-family: 'Source Sans Pro', sans-serif;
+  position: absolute;
+  right: 1.5em;
+  top: 1.5em;
+}
+
+nav i {
+  position: absolute;
+  right: 1.5em;
+  bottom: 1.5em;
+  color: #FFFF;
 }
