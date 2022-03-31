@@ -15,7 +15,6 @@ nav span:nth-child(1) {
 }
 
 nav span:nth-child(2) {
-  font-family: 'Source Sans Pro', sans-serif;
   position: absolute;
   right: 1.5em;
   top: 1.5em;
