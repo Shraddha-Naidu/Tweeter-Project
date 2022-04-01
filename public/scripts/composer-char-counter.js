@@ -6,15 +6,14 @@ $(document).ready(function() {
     //Total chars in textarea
     const currentLength = $(this).val().length;
     const maxlength = 140
+    const count = $(this).siblings('.counter');
   
     if (currentLength > maxlength) {
-      return console.log("Uh Oh, too many characters and not enough space!");
-      CountQueuingStrategy.addClass("over");
+      count.addClass("over");
     } else {
-      count.removeClass('over');
+      count.removeClass("over");
     }
       console.log(maxlength - currentLength);
   });
-  
 });
 
