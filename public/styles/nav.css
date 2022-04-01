@@ -2,10 +2,14 @@
 nav {
   position: fixed;
   top: 0;
+  left:0;
+  right:0;
   height: 120px;
-  width: 100vw;
   background-color: #37A1D3;
+  color: white;
   padding: 1.5em;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /* NAV TITLE STYLE*/
@@ -29,4 +33,7 @@ nav i {
   right: 1.5em;
   bottom: 1.5em;
   color: #FFFF;
+  animation-name: bounce;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
 }
