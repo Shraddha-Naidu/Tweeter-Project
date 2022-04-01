@@ -42,7 +42,6 @@ $document.ready(function () {
 
     loadTweets();
 
-
    $('.new-tweet form').submit(function (event) {
     event.preventDefault();
     const newTweetString = $(this).children("textarea").val();
@@ -63,6 +62,5 @@ $document.ready(function () {
       })
     }
   });
-
 });
 
