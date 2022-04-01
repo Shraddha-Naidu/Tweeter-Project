@@ -32,7 +32,7 @@ nav {
 button {
   background-color: transparent;
   position: absolute;
-  right: 2.75em;
+  right: 3em;
   top: 2.5em;
   bottom: 1.5em;
   color: #FFFF;
@@ -40,6 +40,22 @@ button {
   cursor: pointer;
   outline: none;
   animation-name: bounce;
-  animation-duration: 2000ms;
+  animation-duration: 1000ms;
   animation-iteration-count: infinite;
+}
+
+/* ANIMATION PROPERTIES */
+@keyframes bounce {
+  from {
+    padding: 0px;
+  }
+  to {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 1200px) {
+  nav {
+    background-color: #37A1D3;
+  }
 }

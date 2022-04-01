@@ -1,10 +1,11 @@
-const escape =  function(str) {
-  let div = document.createElement('div');
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-}
-
 $document.ready(function () {
+  $("time.timeago").timeago();
+
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
  const createTweetElement = function(tweetData) {
     const $tweet = $('<article>').addClass('tweet');
@@ -12,9 +13,9 @@ $document.ready(function () {
 
     const innerHTMLContent = `
       <header>
-        <img src= ${tweetData.user.avatars}>
-        <span>${tweetData.user.name}</span>
-        <span class="handle">${tweetData.user.handle}</span>
+        <img src= ${escape(tweetData.user.avatars)}>
+        <span>${escape(tweetData.user.name)}</span>
+        <span class="handle">${escape(tweetData.user.handle)}</span>
       </header>
       <span>${escape(tweetData.content.text)}</span>
       <footer>
@@ -27,7 +28,7 @@ $document.ready(function () {
       </footer>
     `;
 
-    return $tweet.append(innerHTMLContent);
+    return $tweet.html(innerHTMLContent);
   };
 
   const renderTweets = function(beginningOfTimeTweets) {

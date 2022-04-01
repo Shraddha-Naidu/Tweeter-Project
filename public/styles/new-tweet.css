@@ -1,23 +1,44 @@
-.new-tweet input {
-  font-family: Bungee, cursive;
-  background-color: inherit;
-  color: black;
-  outline: none;
-  padding: 6px 9px;
-  margin-top: 8px;
+.new-tweet {
   width: 100%;
-  height: 50px;
-  border: 0;
-  border-bottom: 3px solid black;
+  margin-top: 50px;
 }
 
-.counter {
-  font-family: Bungee, cursive;
+.new-tweet p {
+  padding: 15px;
+  background-color: transparent;
+  color: red;
+  border-radius: 15px red;
+  display: none;
+  text-align: center;
+  margin-top: 0px;
+}
+
+textarea {
+  background-color:  #f4f1ec;
+  width: 100%;
+  resize: none;
+  border-style: none;
+  border-bottom-style: solid;
+  border-width: thick;
+  outline: none;
+  color: black;
+}
+
+.new-tweet input {
+  font-family: Bungee, sans-serif;
+  background-color: #f4f1ec;
+  color: black;
+  outline: none;
+  margin-top: 10px;
+}
+
+span.counter {
+  font-family: Bungee, sans-serif;
   color: black;
   float: right;
   margin-top: 14px;
 }
 
-.over {
+span.counter.over {
   color: red;
 }
