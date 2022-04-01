@@ -1,55 +1,58 @@
+//FUNCTIONS
+
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+const createTweetElement = function(tweetData) {
+  const $tweet = $('<article>').addClass('tweet');
+  const daysAgo = $.timeago.format(tweetData["created_at"]);
+
+  const innerHTMLContent = `
+    <header>
+      <img src= ${escape(tweetData.user.avatars)}>
+      <span>${escape(tweetData.user.name)}</span>
+      <span class="handle">${escape(tweetData.user.handle)}</span>
+    </header>
+    <span>${escape(tweetData.content.text)}</span>
+    <footer>
+      <span>${daysAgo} days ago</span>
+      <span>
+      <i class="fa-solid fa-circle-star"></i>
+      <i class="fa-solid fa-retweet"></i>
+      <i class="fa-solid fa-flag"></i>
+      </span>
+    </footer>
+  `;
+
+  return $tweet.html(innerHTMLContent);
+};
+
+const renderTweets = function(beginningOfTimeTweets) {
+  for (const tweet of beginningOfTimeTweets) {
+    $('section.all-tweets').prepend(createTweetElement(tweet))
+    }
+  };
+
+const loadTweets = function () {
+  $.ajax('/tweets', {
+      method: 'GET',
+      dataType: 'JSON'
+    })
+      .then(function (tweets) {
+        renderTweets(tweets)
+      });
+  };
+
+  loadTweets();
+
+
 $document.ready(function () {
   $("time.timeago").timeago();
 
-  const escape =  function(str) {
-    let div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }
-
- const createTweetElement = function(tweetData) {
-    const $tweet = $('<article>').addClass('tweet');
-    const daysAgo = timeago.format(tweetData["created_at"]);
-
-    const innerHTMLContent = `
-      <header>
-        <img src= ${escape(tweetData.user.avatars)}>
-        <span>${escape(tweetData.user.name)}</span>
-        <span class="handle">${escape(tweetData.user.handle)}</span>
-      </header>
-      <span>${escape(tweetData.content.text)}</span>
-      <footer>
-        <span>${daysAgo} days ago</span>
-        <span>
-        <i class="fa-solid fa-circle-star"></i>
-        <i class="fa-solid fa-retweet"></i>
-        <i class="fa-solid fa-flag"></i>
-        </span>
-      </footer>
-    `;
-
-    return $tweet.html(innerHTMLContent);
-  };
-
-  const renderTweets = function(beginningOfTimeTweets) {
-    for (const tweet of beginningOfTimeTweets) {
-      $('section.all-tweets').prepend(createTweetElement(tweet))
-      }
-    };
-
-    const loadTweets = function () {
-      $.ajax('/tweets', {
-        method: 'GET',
-        dataType: 'JSON'
-      })
-        .then(function (tweets) {
-          renderTweets(tweets)
-        });
-    };
-
-    loadTweets();
-
-   $('.new-tweet form').submit(function (event) {
+  $('.new-tweet form').submit(function (event) {
     event.preventDefault();
     const newTweetString = $(this).children("textarea").val();
 
@@ -69,5 +72,10 @@ $document.ready(function () {
       })
     }
   });
-});
 
+  $('#write-new button').click(function() {
+  ws$('section.new-tweet').slideToggle("slow");
+  $('section.new-tweet textarea').focus();
+  });
+
+});
