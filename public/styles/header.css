@@ -1,4 +1,4 @@
-header {
+body > header {
   height: 400px;
   width: 100%;
   background-color: #D36837;
@@ -12,18 +12,15 @@ header {
 }
 
 /* AVATAR */
-header img {
-  top: 15px;
-  left: 250px;
+body > header img {
   display: inline-block;
   position: relative;
   align-self: center;
 }
 
 /* NAME */
-header h2 {
+body > header h2 {
   text-align: center;
   display: inline-block;
-  width: 256px;
-  margin: 0;
+  color: #fff;
 }
