@@ -24,8 +24,8 @@ $document.ready(function () {
     return $tweet.append(innerHTML);
   };
 
-  const renderTweets = function(tweets) {
-    for (const tweet of tweets) {
+  const renderTweets = function(beginningOfTimeTweets) {
+    for (const tweet of beginningOfTimeTweets) {
       $('section.all-tweets').prepend(createTweetElement(tweet))
       }
     };
@@ -53,8 +53,14 @@ $document.ready(function () {
       alert(`Uh Oh 🙃 Too many characters, please shorten!`)
     } else {
       $.ajax('/tweets', { data: $(this).serialize(), method: 'POST' })
+      .then (function (newestTweet) {
+        return $.ajax('/tweets', { method: 'GET' })
+      })
+      .then (function (allTweets) {
+        renderTweets([allTweets[allTweets.length - 1]]);
+      })
     }
-    });
+  });
 
 });
 
