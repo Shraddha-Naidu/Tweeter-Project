@@ -1,16 +1,21 @@
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+
 $document.ready(function () {
 
-  const createTweetElement = function(tweetData) {
+ const createTweetElement = function(tweetData) {
     const $tweet = $('<article>').addClass('tweet');
     const daysAgo = timeago.format(tweetData["created_at"]);
 
-    const innerHTML = `
+    const innerHTMLContent = `
       <header>
         <img src= ${tweetData.user.avatars}>
         <span>${tweetData.user.name}</span>
         <span class="handle">${tweetData.user.handle}</span>
       </header>
-      <span>${tweetData.content.text}</span>
+      <span>${escape(tweetData.content.text)}</span>
       <footer>
         <span>${daysAgo} days ago</span>
         <span>
@@ -21,7 +26,7 @@ $document.ready(function () {
       </footer>
     `;
 
-    return $tweet.append(innerHTML);
+    return $tweet.append(innerHTMLContent);
   };
 
   const renderTweets = function(beginningOfTimeTweets) {
