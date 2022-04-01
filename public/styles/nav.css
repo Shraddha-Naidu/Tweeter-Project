@@ -1,23 +1,27 @@
 /* NAV BAR STYLE*/
 nav {
+  position: fixed;
+  top: 0;
   height: 120px;
   width: 100vw;
-  color: #FFFF;
   background-color: #37A1D3;
   padding: 1.5em;
-  position: fixed;
 }
 
 /* NAV TITLE STYLE*/
 nav span:nth-child(1) {
   font-family: 'Bungee', cursive;
+  color: #FFFF;
+  font-size: 2em;
   float: left;
 }
 
+/* NEW TWEET */
 nav span:nth-child(2) {
   position: absolute;
   right: 1.5em;
   top: 1.5em;
+  color: #FFFF;
 }
 
 nav i {

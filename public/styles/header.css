@@ -5,8 +5,13 @@ header {
   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");;
   position: relative;
   top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* AVATAR */
 header img {
   top: 15px;
   left: 250px;
@@ -15,6 +20,10 @@ header img {
   align-self: center;
 }
 
+/* NAME */
 header h2 {
   text-align: center;
+  display: inline-block;
+  width: 256px;
+  margin: 0;
 }
