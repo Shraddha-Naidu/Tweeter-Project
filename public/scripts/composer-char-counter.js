@@ -1,19 +1,23 @@
 $(document).ready(function() {
-  // tweet input area
-  const $textArea = $('.new-tweet textarea');
 
-  $('textarea').on("keyup", function() {
+  const textInput = function(){
     //Total chars in textarea
+    const $input = $(this)
+    const $form = $input.closest('form');
+    const $counter = $form.find('counter');
+
     const currentLength = $(this).val().length;
-    const maxlength = 140
-    const count = $(this).siblings('.counter');
-  
-    if (currentLength > maxlength) {
-      count.addClass("over");
-    } else {
-      count.removeClass("over");
+    const maxlength = 140;
+
+    $counter.text(maxlength - currentLength);
+
+    if (maxlength < currentLength) {
+      return $counter.addClass('over')
     }
-      console.log(maxlength - currentLength);
-  });
+    $counter.removeClass('over');
+}
+  //switched to input, so its not tied to keyboard as input method
+  $('textarea').on("input", textInput);
 });
+
 
