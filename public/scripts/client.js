@@ -57,6 +57,8 @@ $document.ready(function () {
         return $.ajax('/tweets', { method: 'GET' })
       })
       .then (function (allTweets) {
+        $(this)[0].reset();
+        $(this).children('span').text(140);
         renderTweets([allTweets[allTweets.length - 1]]);
       })
     }
