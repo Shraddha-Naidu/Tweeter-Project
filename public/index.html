@@ -42,6 +42,7 @@
   </head>
 
   <body>
+
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
@@ -62,18 +63,18 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
+      <!--NEW TWEETS-->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets/">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text" maxlength="140"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text"><b>140</b></output>
-          </div>
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet" id="input">
+          <span class="counter">140</span>
         </form>
       </section>
 
+      <!--ALL TWEETS-->
       <section class="all-tweets">
         <header>
           <img src="/images/profile-hex.png">
@@ -82,7 +83,7 @@
         </header>
         THIS IS WHAT I SAID SO MANY DAYS AGO!!!!
         <footer>
-          5 DAYS AGO
+          <span class="need_to_be_rendered" datetime="timeago.format(`${created_at}`);">July 07, 2016</span>
           <i class="fa-solid fa-circle-star"></i>
           <i class="fa-solid fa-retweet"></i>
           <i class="fa-solid fa-flag"></i>
