@@ -34,25 +34,28 @@ $document.ready(function () {
 
    $('.new-tweet form').submit(function (event) {
     event.preventDefault();
+    const newTweetString = $(this).children("textarea").val();
 
-    $.ajax('/tweets', {
-      data: $(this).serialize(),
-      method: 'POST'
+    if(!newTweetString) {
+      alert(`Tweet must contain at least one character! Please try again!`)
+    } else if (newTweetString.length > 140) {
+      alert(`Uh Oh 🙃 Too many characters, please shorten!`)
+    } else {
+      $.ajax('/tweets', { data: $(this).serialize(), method: 'POST' })
+    }
     });
 
     const loadTweets = () => {
-      $.ajax('/tweets', {
-        method: 'GET',
-        dataType: 'JSON'
-      })
-        .then(tweets => renderTweets(tweets));
-    };
+    $.ajax('/tweets', {
+      method: 'GET',
+      dataType: 'JSON'
+    })
+      .then(tweets => renderTweets(tweets));
+  };
   
-    loadTweets();
-  
-  });
-
+  loadTweets();
 });
+
 
 
 
