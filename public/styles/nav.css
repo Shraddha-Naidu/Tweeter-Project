@@ -5,6 +5,7 @@ nav {
   left:0;
   right:0;
   height: 120px;
+  z-index: 400;
   background-color: #37A1D3;
   color: white;
   padding: 1.5em;
@@ -13,27 +14,32 @@ nav {
 }
 
 /* NAV TITLE STYLE*/
-nav span:nth-child(1) {
-  font-family: 'Bungee', cursive;
+#title {
+  font-family: 'Bungee', sans-serif;
   color: #FFFF;
   font-size: 2em;
   float: left;
 }
 
 /* NEW TWEET */
-nav span:nth-child(2) {
-  position: absolute;
+#write-new {
+  float: right;
   right: 1.5em;
   top: 1.5em;
   color: #FFFF;
 }
 
-nav i {
+button {
+  background-color: transparent;
   position: absolute;
-  right: 1.5em;
+  right: 2.75em;
+  top: 2.5em;
   bottom: 1.5em;
   color: #FFFF;
+  border-style: none;
+  cursor: pointer;
+  outline: none;
   animation-name: bounce;
-  animation-duration: 1000ms;
+  animation-duration: 2000ms;
   animation-iteration-count: infinite;
 }
