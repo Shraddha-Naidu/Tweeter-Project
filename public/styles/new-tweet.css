@@ -5,6 +5,22 @@ main textarea {
   border-bottom: 3px solid black;
 }
 
+.new-tweet input {
+  font-family: Bungee, sans-serif;
+  background-color: inherit;
+  color: black;
+  outline: none;
+  padding: 6px 9px;
+  margin-top: 8px;
+}
 
+.counter {
+  font-family: Bungee, sans-serif;
+  color: black;
+  float: right;
+  margin-top: 14px;
+}
 
-
+.over {
+  color: red;
+}
