@@ -1,8 +1,8 @@
 .new-tweet {
-  width: 100%;
-  margin-top: 50px;
+  display: none;
 }
 
+/*Error Message*/
 .new-tweet p {
   padding: 15px;
   background-color: transparent;
@@ -13,13 +13,15 @@
   margin-top: 0px;
 }
 
-textarea {
+/*Input area*/
+.new-tweet textarea {
   background-color:  #f4f1ec;
   width: 100%;
+  height: 45px;
+  border: 0;
+  border-bottom-style: 4 px solid black;
+  font-weight: 700;
   resize: none;
-  border-style: none;
-  border-bottom-style: solid;
-  border-width: thick;
   outline: none;
   color: black;
 }
@@ -30,6 +32,7 @@ textarea {
   color: black;
   outline: none;
   margin-top: 10px;
+  border: 1px black
 }
 
 span.counter {
@@ -39,6 +42,6 @@ span.counter {
   margin-top: 14px;
 }
 
-span.counter.over {
+.over {
   color: red;
 }
