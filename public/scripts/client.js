@@ -1,7 +1,12 @@
-//FUNCTIONS
+/*JQuery*/
+
+$document.ready(function () {
+  //$("time.timeago").timeago();
+
+  //FUNCTIONS
 
 const escape =  function(str) {
-  let div = document.createElement('div');
+  const div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
@@ -30,52 +35,45 @@ const createTweetElement = function(tweetData) {
   return $tweet.html(innerHTMLContent);
 };
 
+//Adds all Tweets
 const renderTweets = function(beginningOfTimeTweets) {
   for (const tweet of beginningOfTimeTweets) {
     $('section.all-tweets').prepend(createTweetElement(tweet))
-    }
-  };
+  }
+};
 
 const loadTweets = function () {
   $.ajax('/tweets', {
-      method: 'GET',
-      dataType: 'JSON'
-    })
-      .then(function (tweets) {
-        renderTweets(tweets)
-      });
-  };
+    method: 'GET',
+    dataType: 'JSON',
+    success: tweets => renderTweets(tweets),
+    error: (data, text, error) => console.error(error)
+  });
+};
+
 
   loadTweets();
 
-
-$document.ready(function () {
-  $("time.timeago").timeago();
-
-  $('.new-tweet form').submit(function (event) {
+$('.new-tweet form').submit(function (event) {
     event.preventDefault();
+    
     const newTweetString = $(this).children("textarea").val();
 
     if(!newTweetString) {
       alert(`Tweet must contain at least one character! Please try again!`)
+    
     } else if (newTweetString.length > 140) {
       alert(`Uh Oh 🙃 Too many characters, please shorten!`)
+   
     } else {
-      $.ajax('/tweets', { data: $(this).serialize(), method: 'POST' })
-      .then (function (newestTweet) {
-        return $.ajax('/tweets', { method: 'GET' })
-      })
-      .then (function (allTweets) {
-        $(this)[0].reset();
-        $(this).children('span').text(140);
-        renderTweets([allTweets[allTweets.length - 1]]);
-      })
-    }
-  });
-
-  $('#write-new button').click(function() {
-  ws$('section.new-tweet').slideToggle("slow");
-  $('section.new-tweet textarea').focus();
-  });
-
+      $.ajax('/tweets', {
+        data: $(this).serialize(),
+        method: 'POST',
+        success: () => {
+          loadTweets();
+          $textArea.val(''); // clear input
+          $('.counter').text('140'); // reset counter
+      }
+    })
+  }
 });
