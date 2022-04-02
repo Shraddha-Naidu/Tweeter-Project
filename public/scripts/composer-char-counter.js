@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
   const textInput = function(){
-    //Total chars in textarea
     const $input = $(this)
     const $form = $input.closest('form');
     const $counter = $form.find('counter');
