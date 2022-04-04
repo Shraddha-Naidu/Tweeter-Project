@@ -3,10 +3,6 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-* {
-  font-family: 'Source Sans Pro', sans-serif;
-  /* Blanket styling under '*' */
-}
 
 html {
   box-sizing: border-box;
@@ -19,6 +15,11 @@ html {
  * Global layout stuff
  */
 
+ * {
+  font-family: 'Source Sans Pro', sans-serif;
+  /* Blanket styling under '*' */
+}
+
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -29,9 +30,12 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
  main {
-  background-color: #f4f1ec;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0px 50px 50px 50px;
+  margin: auto;
+  width: 90%;
+  position: relative;
+  top: 120px;
  }
+
+ .new-tweet form {
+  margin: 0 0 60px;
+}
