@@ -14,7 +14,7 @@
 }
 
 /*Input area*/
-.new-tweet textarea {
+.input-tweet {
   background-color:  #f4f1ec;
   width: 100%;
   height: 45px;
@@ -24,6 +24,7 @@
   resize: none;
   outline: none;
   color: black;
+  font-weight: bold;
 }
 
 .new-tweet input {
@@ -33,6 +34,14 @@
   outline: none;
   margin-top: 10px;
   border: 1px black
+}
+
+#error-message {
+  display: flex;
+  align-items: center;
+  color: red;
+  border: 2px solid red;
+  font-weight: bold;
 }
 
 span.counter {

@@ -2,7 +2,7 @@ section.all-tweets {
   width: 100%;
 }
 
-article.tweet {
+article {
   border-style: solid;
   border-width: thick;
   color: black;
@@ -10,25 +10,25 @@ article.tweet {
   padding: 20px;
 }
 
-article.tweet:hover {
+article:hover {
   box-shadow: 5px 5px 0 #646466;
 }
 
-article.tweet header {
+article header {
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
 }
 
-article.tweet header img {
+article header img {
   height: 2em;
 }
 
-article.tweet header span {
+article header span {
   padding: 10px;
 }
 
-article.tweet header span.handle {
+article header span.handle {
   margin-left: auto;
   color: transparent;
 }
