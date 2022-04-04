@@ -51,43 +51,39 @@ const data = [
       </footer>
     </article>
     `;
-  
+
     return innerHTMLContent;
   };
-  
+
   //Adds all Tweets
   const renderTweets = function(beginningOfTimeTweets) {
     for (const tweet of beginningOfTimeTweets) {
       $('section.all-tweets').prepend(createTweetElement(tweet))
     }
   };
-  
+
   const loadTweets = function () {
-    $.get("/tweets/")
+    $.ajax("/tweets/", {method: "GET" })
       .then((data) => {
         console.log(data);
         renderTweets(data);
       });
   };
 /*JQuery*/
+//DOM ready
 
 $(document).ready(function () {
 
-  renderTweets(data);
+loadTweets();
 
-//loadTweets();
-/* 
-$('.new-tweet form').submit(function (event) {
+
+$(".new-tweet").submit(function (event) {
     event.preventDefault();
-    
-    const newTweetString = $(this).children("textarea").val();
 
-    if(!newTweetString) {
-      alert(`Tweet must contain at least one character! Please try again!`)
-    
-    } else if (newTweetString.length > 140) {
+    if(!$(".input-Tweet").val()) {
+      alert("Invalid! Please try again!")
+    } else if ($(".input-Tweet").val().length > 140) {
       alert(`Uh Oh 🙃 Too many characters, please shorten!`)
-   
     } else {
       $.post("/tweets/", $(this).serialize())
         .then(() => {
@@ -95,8 +91,9 @@ $('.new-tweet form').submit(function (event) {
             .then((data) => {
               console.log(data);
               renderTweets(data.slice(-1));
+        })
       })
-  }
 
-}); */
+    };
+  })
 });

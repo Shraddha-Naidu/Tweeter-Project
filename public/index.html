@@ -61,9 +61,9 @@
 
       <!--NEW TWEETS-->
       <section class="new-tweet">
-        <p></p>
+        <p id="error-message"></p>
         <form method="POST" action="/tweets/">
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <textarea class="input-tweet" name="text" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet" id="input">
           <span class="counter">140</span>
         </form>
