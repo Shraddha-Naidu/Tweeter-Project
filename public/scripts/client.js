@@ -37,12 +37,12 @@ const data = [
     <article>
       <header>
         <img src= ${escape(tweetData.user.avatars)}>
-        <span>${escape(tweetData.user.name)}</span>
+        <span class="name">${escape(tweetData.user.name)}</span>
         <span class="handle">${escape(tweetData.user.handle)}</span>
       </header>
-      <span>${escape(tweetData.content.text)}</span>
+      <span class="tweet_text">${escape(tweetData.content.text)}</span>
       <footer>
-        <span>${timeago.format(escape(tweetData.created_at))} days ago</span>
+        <span class="date_stamp">${timeago.format(escape(tweetData.created_at))}</span>
         <span>
         <i class="fa-solid fa-circle-star"></i>
         <i class="fa-solid fa-retweet"></i>
@@ -78,7 +78,7 @@ loadTweets();
 
 
 $(".new-tweet").submit(function (event) {
-    event.preventDefault();
+    event.preventDefault();//prevents default submission behaviour
 
     if(!$(".input-Tweet").val()) {
       alert("Invalid! Please try again!")
