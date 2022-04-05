@@ -45,17 +45,12 @@ button {
 }
 
 /* ANIMATION PROPERTIES */
-@keyframes bounce {
+/* @keyframes bounce {
   from {
-    padding: 0px;
+    padding: 5px;
   }
   to {
     padding: 5px;
   }
 }
-
-@media (max-width: 1200px) {
-  nav {
-    background-color: #37A1D3;
-  }
-}
+ */
