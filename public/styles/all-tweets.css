@@ -24,29 +24,29 @@ article header img {
   height: 2em;
 }
 
-article header span {
-  padding: 10px;
+article header span.name {
+  height: 3em;
+  font-weight: bold;
 }
 
 article header span.handle {
   margin-left: auto;
-  color: transparent;
+  color: black;
 }
 
-article.tweet:hover header span.handle {
-  color: #646466;
+article header span {
+  padding: 10px;
 }
 
-article.tweet span {
+
+article span.tweet_text {
   padding: 10px;
   overflow-wrap: break-word;
+  font-size: large;
+  justify-content: flex-start;
 }
 
-article.tweet:hover header {
-  font-weight: 600;
-}
-
-article.tweet footer {
+article footer {
   border-style: none;
   border-top-style: solid;
   border-width: thick;
@@ -57,23 +57,20 @@ article.tweet footer {
   margin-top: 5px;
  }
 
- article.tweet:hover footer {
-  font-weight: 600;
+ article footer span.date_stamp {
+  font-size: 15px;
 }
 
- article.tweet footer span {
+
+ article footer i {
    font-size: 15px;
  }
 
- article.tweet footer span.interactOptions {
-   font-size: 12px;
- }
-
- article.tweet footer span.interactOptions i {
+ article footer span.interactOptions i {
    padding: 5px;
    color: transparent;
  }
 
- article.tweet:hover footer span.interactOptions i {
+ article footer span:hover.interactOptions i {
    color: #646466;
  }
