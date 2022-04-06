@@ -1,22 +1,18 @@
 $(document).ready(function() {
+  const maxLength = 140;
+  $('char-count').text(maxLength)
 
-  const textInput = function(){
-    const $input = $(this)
-    const $form = $input.closest('form');
-    const $counter = $form.find('counter');
+  $("textarea").on("input", function(){
+    const count = $('#char-count')
+    const input = $(this).val().length;
 
-    const currentLength = $(this).val().length;
-    const maxlength = 140;
-
-    $counter.text(maxlength - currentLength);
-
-    if (maxlength < currentLength) {
-      return $counter.addClass('over')
+    if (input > maxLength) {
+      return count.addClass('#char-count--red')
+    } else {
+      return count.removeClass('#char-count--red')
     }
-    $counter.removeClass('over');
-}
-  //switched to input, so its not tied to keyboard as input method
-  $('textarea').on("input", textInput);
+
+    count.text(maxLength - input)
+
+  });
 });
-
-

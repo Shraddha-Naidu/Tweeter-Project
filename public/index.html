@@ -44,7 +44,7 @@
       <span id="title">tweeter</span>
       <div id="write-new">
       <span><b>New</b> Tweet</span>
-      <button type="button">
+      <button type="compose" class="compose">
         <i class="fa-solid fa-angles-down"></i>
       </button>
      </div>
@@ -58,14 +58,18 @@
 
     <!-- Page-specific (main) content here -->
     <main>
+      <span class="error-message">
+        <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
+      </span>
 
       <!--NEW TWEETS-->
       <section class="new-tweet">
-        <p id="error-message"></p>
-        <form method="POST" action="/tweets/">
+        <form method="POST" action="/tweets/" class="new-tweet-form">
           <textarea class="input-tweet" name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet" id="input">
-          <span class="counter">140</span>
+          <div class="input-footer">
+            <button type="submit" style="font-family: 'Bungee', cursive">Tweet</button>
+            <output class="counter" id="char-count" style="font-family: 'Bungee', cursive">140</output>
+          </div>
         </form>
       </section>
       <br>
