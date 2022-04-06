@@ -1,28 +1,3 @@
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
   //FUNCTIONS
 
   const escape =  function(str) {
@@ -33,8 +8,8 @@ const data = [
 
   const createTweetElement = function(tweetData) {
 
-    const innerHTMLContent = `
-    <article>
+    let $newTweet = $(`
+    <article class="newTweet">
       <header>
         <img src= ${escape(tweetData.user.avatars)}>
         <span class="name">${escape(tweetData.user.name)}</span>
@@ -50,9 +25,9 @@ const data = [
         </span>
       </footer>
     </article>
-    `;
+    `);
 
-    return innerHTMLContent;
+    return $newTweet;
   };
 
   //Adds all Tweets
@@ -63,8 +38,10 @@ const data = [
   };
 
   const loadTweets = function () {
-    $.ajax("/tweets/", {method: "GET" })
-      .then((data) => {
+    $.ajax({
+      url: "/tweets/",
+      type: "GET"
+    }).then(function(data){
         console.log(data);
         renderTweets(data);
       });
@@ -74,23 +51,30 @@ const data = [
 
 $(document).ready(function () {
 
+//Loads tweets from db
 loadTweets();
 
-
-$(".new-tweet").submit(function (event) {
+// New submitted tweet
+$(".new-tweet-form").submit(function (event) {
     event.preventDefault();//prevents default submission behaviour
 
-    if(!$(".input-Tweet").val()) {
-      alert("Invalid! Please try again!")
-    } else if ($(".input-Tweet").val().length > 140) {
-      alert(`Uh Oh 🙃 Too many characters, please shorten!`)
+    if(!$(".input-tweet").val()) {//No inputt
+      $("#error-message").html("Invalid! Please try again!")
+    } else if ($(".input-tweet").val().length > 140) {
+      $("#error-message").html(`Uh Oh 🙃 Too many characters, please shorten!`)
     } else {
-      $.post("/tweets/", $(this).serialize())
-        .then(() => {
-          $.get("/tweets/")
-            .then((data) => {
+      $.ajax({
+        url:"/tweets/",
+        type: "POST",
+        data: $("new-tweet").serialize()
+      }).then((data) => {
+          $.ajax({
+            url: "/tweets/",
+            type:"GET"
+          }).then(function(data){
               console.log(data);
-              renderTweets(data.slice(-1));
+              renderTweets(data);
+              $(".input-tweet").empty()//clears input
         })
       })
 
