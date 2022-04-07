@@ -61,6 +61,9 @@ $(".new-tweet-form").submit(function (event) {
 
     if(!$(".input-tweet").val()) {//No inputt
       $(".error-message").html("Invalid! Please try again!")
+      setTimeout(() => {
+        $(".error-message").slideDown();
+      }, 600);
     } else if ($(".input-tweet").val().length > 140) {
       $(".error-message").html(`Uh Oh 🙃 Too many characters, please shorten!`)
     } else {

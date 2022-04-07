@@ -17,7 +17,7 @@
 
 
 /*ERROR MESSAGE*/
-main span .error-message {
+/* .new-tweet p .error-message {
   visibility: hidden;
   align-items: center;
   color: red;
@@ -25,12 +25,8 @@ main span .error-message {
   font-weight: bold;
   background-color: transparent;
   padding: 10px;
-  
-}
-
-main span .error-message i {
-  color: red;
-}
+  font-weight: bold;
+} */
 
 /*TWEET BUTTON/COUNTER*/
 .input-footer{
