@@ -62,15 +62,9 @@ article footer {
 }
 
 
- article footer i {
+ article footer span i {
    font-size: 15px;
  }
-
- article footer span.interactOptions i {
-   padding: 5px;
-   color: transparent;
- }
-
- article footer span:hover.interactOptions i {
-   color: #646466;
+ article footer span i:hover {
+   color: #bfbfc0;
  }
