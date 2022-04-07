@@ -5,14 +5,13 @@ $(document).ready(function() {
   $("textarea").on("input", function(){
     const count = $('#char-count')
     const input = $(this).val().length;
+    count.text(maxLength - input)
 
     if (input > maxLength) {
-      return count.addClass('#char-count--red')
+      count.addClass('red')
     } else {
-      return count.removeClass('#char-count--red')
+      count.removeClass('red')
     }
-
-    count.text(maxLength - input)
 
   });
 });
