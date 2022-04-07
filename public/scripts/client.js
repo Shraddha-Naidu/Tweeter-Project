@@ -19,7 +19,7 @@
       <footer>
         <span class="date_stamp">${timeago.format(escape(tweetData.created_at))}</span>
         <span>
-        <i class="fa-solid fa-circle-star"></i>
+        <i class="fa-solid fa-heart"></i>
         <i class="fa-solid fa-retweet"></i>
         <i class="fa-solid fa-flag"></i>
         </span>
@@ -43,6 +43,7 @@
       type: "GET"
     }).then(function(data){
         console.log(data);
+        $(".all-tweets").empty()//clears input
         renderTweets(data);
       });
   };
@@ -66,17 +67,11 @@ $(".new-tweet-form").submit(function (event) {
       $.ajax({
         url:"/tweets/",
         type: "POST",
-        data: $("new-tweet").serialize()
-      }).then((data) => {
-          $.ajax({
-            url: "/tweets/",
-            type:"GET"
-          }).then(function(data){
-              console.log(data);
-              renderTweets(data);
-              $(".input-tweet").empty()//clears input
+        data: $(".input-tweet").serialize()
+      }).then(() => {
+          loadTweets();
+          $(".input-tweet").val("")
         })
-      })
 
     };
   })
