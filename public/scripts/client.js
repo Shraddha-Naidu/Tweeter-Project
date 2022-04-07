@@ -60,9 +60,9 @@ $(".new-tweet-form").submit(function (event) {
     event.preventDefault();//prevents default submission behaviour
 
     if(!$(".input-tweet").val()) {//No inputt
-      $("#error-message").html("Invalid! Please try again!")
+      $(".error-message").html("Invalid! Please try again!")
     } else if ($(".input-tweet").val().length > 140) {
-      $("#error-message").html(`Uh Oh 🙃 Too many characters, please shorten!`)
+      $(".error-message").html(`Uh Oh 🙃 Too many characters, please shorten!`)
     } else {
       $.ajax({
         url:"/tweets/",
@@ -71,6 +71,7 @@ $(".new-tweet-form").submit(function (event) {
       }).then(() => {
           loadTweets();
           $(".input-tweet").val("")
+          $("#char-count").text(140);
         })
 
     };

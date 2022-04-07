@@ -17,15 +17,18 @@
 
 
 /*ERROR MESSAGE*/
-.error-message {
+main span .error-message {
   visibility: hidden;
   align-items: center;
   color: red;
   border: 2px solid red;
   font-weight: bold;
+  background-color: transparent;
+  padding: 10px;
+  
 }
 
-.error-message i {
+main span .error-message i {
   color: red;
 }
 
