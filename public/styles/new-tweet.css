@@ -54,3 +54,7 @@
   justify-items: flex-end;
   color: black;
 }
+
+#char-count.red{
+  color:red
+}
