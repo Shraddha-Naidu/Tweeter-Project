@@ -7,7 +7,7 @@ A simple single-page AJAX-based Twitter clone that uses HTML5, CSS3, and jQuery 
 ##Screenshots
 !["Screenshot of Desktop view"](https://github.com/Shraddha-Naidu/tweeter/blob/master/docs/desktop-view.png)
 !["Screenshot of Tablet view"](https://github.com/Shraddha-Naidu/tweeter/blob/master/docs/tablet-view.png)
-!["Screenshot of tweet input"]()
+***Tweet input video in docs.
 
 
 ## Getting Started
