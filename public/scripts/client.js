@@ -59,13 +59,10 @@ loadTweets();
 $(".new-tweet-form").submit(function (event) {
     event.preventDefault();//prevents default submission behaviour
 
-    if(!$(".input-tweet").val()) {//No inputt
-      $(".error-message").html("Invalid! Please try again!")
-      setTimeout(() => {
-        $(".error-message").slideDown();
-      }, 600);
+    if(!$(".input-tweet").val()) {
+      $(".error-message").html("Invalid! Please try again!").fadeIn(200).fadeOut(3500);
     } else if ($(".input-tweet").val().length > 140) {
-      $(".error-message").html(`Uh Oh 🙃 Too many characters, please shorten!`)
+      $(".error-message").html(`Uh Oh 🙃 Too many characters, please shorten!`).fadeIn(200).fadeOut(3500);
     } else {
       $.ajax({
         url:"/tweets/",
